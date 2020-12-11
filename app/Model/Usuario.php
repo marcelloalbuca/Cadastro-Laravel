@@ -21,4 +21,13 @@ class Usuario extends Model
         dd($sql->toSql());
     }
 
+    public static function cadastrar(Request $request){
+        $sql = self::insert([
+            "nome" => $request->input('nome'),
+            "email" => $request->input('email'),
+            "data_cadastro" => DB::raw('NOW()')
+        ]);
+
+        dd($sql->toSql(), $request->all());
+    }
 }
