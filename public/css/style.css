@@ -1,0 +1,10 @@
+html, body{
+    padding: 0;
+    margin:0;
+}
+
+.logo{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(42, 40, 40);
+}
