@@ -13,7 +13,7 @@ class Usuario extends Model
     public static function listar(int $limite){
         $sql = self::select([
             "id",
-            "name",
+            "nome",
             "email",
             "senha",
             "data_cadastro"
