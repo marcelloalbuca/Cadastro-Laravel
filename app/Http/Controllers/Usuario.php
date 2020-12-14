@@ -16,12 +16,18 @@ class Usuario extends Controller
     public function salvar(Request $request){
         $request->validate([
             "nome" => "required",
-            "email" => "required|email",
+            "email" => "required|email|unique:usuario,email",
             "senha" => "required|min:5"
         ]);
-             //dd($request->all());
+        //dd($request->all());
 
-        UsuarioModel::cadastrar($request);
-            return view('usuario.sucesso');
+        if(UsuarioModel::cadastrar($request)){
+            return view('usuario.sucesso',[
+                "fulano" => $request->input('nome')
+            ]);
+        }else{
+            echo"Ops! Falhou ao cadastrar";
+        }
+
     }
 }
