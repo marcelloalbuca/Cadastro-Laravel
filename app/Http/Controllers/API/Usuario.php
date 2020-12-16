@@ -21,5 +21,19 @@ class Usuario extends Controller
         return UsuarioModel::listar(10);
     }
 
-    
+    public function deletar(Request $request){
+        if(UsuarioModel::deletar($request)){
+            return response("ok deletar 2", 200);
+        } else {
+            return response("error deletar 2", 409);
+        }
+    }
+
+    public function editar(Request $request){
+        if(UsuarioModel::editar($request)){
+            return response("ok editar 2", 201);
+        } else {
+            return response("error editar 2", 409);
+        }  
+    }
 }
