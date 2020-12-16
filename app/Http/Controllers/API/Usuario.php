@@ -10,11 +10,16 @@ class Usuario extends Controller
 {
     public function salvar(Request $request){
         //dd($request->all());
-
         if(UsuarioModel::cadastrar($request)){
             return response("ok", 201);
         } else {
             return response("error", 409);
         }  
     }
+
+    public function listar(){
+        return UsuarioModel::listar(10);
+    }
+
+    
 }
