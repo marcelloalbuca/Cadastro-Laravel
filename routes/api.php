@@ -19,10 +19,13 @@ use App\Model\Usuario;
 }); */
 
 Route::prefix('v1')->group(function(){
-    Route::get('lista', function(){
+    
+    /*Route::get('lista', function(){
        return Usuario::listar(10);
-    });
+    });*/
+    Route::get('listar', "API\Usuario@listar");
 
     Route::post('cadastra', "API\Usuario@salvar");
+
 });
 
