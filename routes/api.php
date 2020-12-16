@@ -27,5 +27,8 @@ Route::prefix('v1')->group(function(){
 
     Route::post('cadastra', "API\Usuario@salvar");
 
+    Route::delete('usuario/{id}', "API\Usuario@deletar");
+
+    Route::put('usuario/{id}', "API\Usuario@editar");
 });
 
