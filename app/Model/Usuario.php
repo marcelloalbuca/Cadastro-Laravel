@@ -21,22 +21,29 @@ class Usuario extends Model
             "data_cadastro"
         ])
         ->limit($limite);
-
         //dd($sql->toSql());
-
         return $sql->get();
     }
 
     public static function cadastrar(Request $request){
         //DB::enableQueryLog();
-
        return self::insert([
             "nome" => $request->input('nome'),
             "email" => $request->input('email'),
             "senha" => Hash::make($request->input('senha')),
             "data_cadastro" => new Carbon()
         ]);
-
         //dd(DB::getQueryLog());
+    }
+
+    public static function deletar(Request $request){
+        return DB::delete('delete from usuario where id = id');  
+    }
+
+    public static function editar(Request $request){
+        return self::update([
+            "nome" => $request->input('nome'),
+            "email" => $request->input('email')
+        ]);
     }
 }
